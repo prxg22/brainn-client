@@ -16,7 +16,7 @@ setDefaults({
 })
 
 const loadStories = () => {
-  requireAll(require.context('../src/', true, /-story\.jsx?$/))
+  requireAll(require.context('../src/app/ui-components', true, /-story\.jsx?$/))
 }
 
 configure(loadStories, module)

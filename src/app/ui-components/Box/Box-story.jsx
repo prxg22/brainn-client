@@ -12,8 +12,6 @@ import Column from '../Grid/Column'
 import Box from './Box'
 
 // custom story styles
-import style from '../../styles/storybook/base.styl'
-
 storiesOf('Box', module)
     .add(
         'default',
@@ -26,25 +24,13 @@ storiesOf('Box', module)
                     theming: 'Type'
                 }
 
-                const themeValue = select('Theme', {
-                    ['']: 'Default',
-                    primary: 'Primary',
-                    dark: 'Dark',
-                    gold: 'Gold',
-                }, '', groups.type)
-
                 const statusValue = select('Status', {
                     ['']: 'Default',
                     info: 'Info',
-                    success: 'Success',
-                    warning: 'Warning',
-                    error: 'Error',
                 }, '', groups.type)
 
                 const noRadiusValue = boolean('No Radius', false, groups.style)
                 const noBorderValue = boolean('No Border', false, groups.style)
-                const backgroundImage = boolean('Set background image', false, groups.style)
-                const backgroundOpacityValue = boolean('Background Opacity', false, groups.style)
                 const shadowColorValue = text('Shadow Color', '', groups.style)
 
                 const shadowLevelValue = number('Shadow Level', 1, {

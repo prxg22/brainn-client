@@ -4,7 +4,7 @@ const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: ['whatwg-fetch', './src/index.jsx'],
   devtool: 'eval-source-map',
   output: {
     path: path.join(__dirname, '/dist/'),

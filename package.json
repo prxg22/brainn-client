@@ -8,14 +8,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run serve:dev",
-    "serve:dev": "webpack && webpack-dev-server --progress --open"
+    "serve:dev": "webpack && webpack-dev-server --progress --open",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
     "babel-polyfill": "~6.26.0",
     "classnames": "~2.2.5",
     "prop-types": "~15.6.0",
     "react": "~16.2.0",
-    "react-dom": "~16.2.0"
+    "react-dom": "~16.2.0",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.7",

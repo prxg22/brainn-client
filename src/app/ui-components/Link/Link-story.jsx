@@ -12,9 +12,6 @@ import Box from '../Box'
 
 import Link from './Link'
 
-// custom story styles
-import style from '../../styles/storybook/base.styl'
-
 storiesOf('Link', module)
     .add(
         'default',
@@ -27,11 +24,6 @@ storiesOf('Link', module)
                     icon: 'Icon',
                     content: 'Content',
                 }
-
-                const kindValue = select('Kind',{
-                    primary: 'Primary',
-                    inverse: 'Inverse',
-                }, 'primary', groups.style)
                 return (
                     <Container>
                         <Row>
@@ -43,17 +35,13 @@ storiesOf('Link', module)
                                     style={{
                                         padding: 16,
                                     }}
-                                    theme={kindValue === 'inverse' ? 'dark' : ''}
                                 >
                                     <Link
-                                        kind={kindValue}
                                         icon={text('Icon', 'arrow-left', groups.icon)}
                                         iconPosition={select('Icon Position',{
                                             left: 'Left',
                                             right: 'Right',
                                         }, 'left', groups.icon)}
-                                        href={text('href', '', groups.content)}
-                                        colorInherit={boolean('Color Inherit', false, groups.style)}
                                     >
                                         {text('Content', 'Link', groups.content)}
                                     </Link>

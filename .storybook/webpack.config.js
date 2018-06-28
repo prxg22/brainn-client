@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
             limit: 1000,
             name: path.resolve(__dirname, '..', 'assets/images/[name].[hash:7].[ext]')
@@ -42,7 +42,7 @@ module.exports = {
     },
     {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
           limit: 10000,
           name: path.resolve(__dirname, '..', 'assets/fonts/[name].[hash:7].[ext]')

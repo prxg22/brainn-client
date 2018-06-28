@@ -11,9 +11,6 @@ import Column from '../Grid/Column'
 
 import Tag from './Tag'
 
-// custom story styles
-import style from '../../styles/storybook/base.styl'
-
 storiesOf('Tags', module)
     .add(
         'default',
@@ -28,13 +25,7 @@ storiesOf('Tags', module)
 
                 const typeValue = select('Type', {
                     '': 'Default',
-                    info: 'Info',
-                    warning: 'Warning',
-                    error: 'Error',
-                    content: 'Content',
-                    success: 'Success',
-                    black: 'Black',
-                    gold: 'Gold',
+                    secondary: 'Seconday',
                 }, '', groups.type)
 
                 const shapeValue = select('Shape', {

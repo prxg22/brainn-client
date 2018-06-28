@@ -9,8 +9,7 @@ import Container from './Container'
 import Row from './Row'
 import Column from './Column'
 
-// custom story styles
-import style from '../../styles/storybook/base.styl'
+import Box from '../Box'
 
 storiesOf('Grid', module)
     .add(
@@ -46,13 +45,38 @@ storiesOf('Grid', module)
                             justifyEnd={alignStretchValue(text('Justify End', '', groups.justify))}
                             reverse={reverseValue(text('Reverse', '', groups.direction))}
                             fluid={fluidValue(text('Fluid', '', groups.fluid))}
-                            className={style['grid-example']}
+
                         >
-                            <Column cols={{ xs: 4 }}>0</Column>
-                            <Column cols={{ xs: 4 }}>2</Column>
-                            <Column cols={{ xs: 4 }}>3</Column>
-                            <Column cols={{ xs: 4 }}>4</Column>
-                            <Column cols={{ xs: 4 }}>5</Column>
+                            <Column cols={{ xs: 4 }}>
+                                <Box style={{
+                                    marginBottom: '8px',
+                                    padding: '16px',
+                                    height: '100px' }}>0</Box>
+                            </Column>
+                            <Column cols={{ xs: 4 }}>
+                                <Box style={{
+                                    marginBottom: '8px',
+                                    padding: '16px',
+                                    height: '100px' }}>2</Box>
+                            </Column>
+                            <Column cols={{ xs: 4 }}>
+                                <Box style={{
+                                    marginBottom: '8px',
+                                    padding: '16px',
+                                    height: '100px' }}>3</Box>
+                            </Column>
+                            <Column cols={{ xs: 4 }}>
+                                <Box style={{
+                                    marginBottom: '8px',
+                                    padding: '16px',
+                                    height: '100px' }}>4</Box>
+                            </Column>
+                            <Column cols={{ xs: 4 }}>
+                                <Box style={{
+                                    marginBottom: '8px',
+                                    padding: '16px',
+                                    height: '100px' }}>5</Box>
+                            </Column>
                         </Row>
                     </Container>
                 )
@@ -93,7 +117,7 @@ storiesOf('Grid', module)
 
                 return (
                     <Container>
-                        <Row className={style['grid-example']}>
+                        <Row>
                             <Column
                                 cols={colValue}
                                 alignTop={alignTopValue(text('Align Top', '', groups.alignment))}
@@ -102,12 +126,24 @@ storiesOf('Grid', module)
                                 alignStretch={alignStretchValue(text('Align Stretch', '', groups.alignment))}
                                 hidden={alignStretchValue(text('Hidden', '', groups.misc))}
                                 noGutter={alignStretchValue(text('No-gutter', '', groups.misc))}
-                            >cols: {Object.entries(colValue)}</Column>
+                            >
+
+                                <Box style={{
+                                marginBottom: '8px',
+                            padding: '16px',
+                         }}>cols: {Object.entries(colValue)}</Box>
+                            </Column>
                             <Column
                                 cols={{ xs: 6 }}
                                 offsets={offsetValue}
                                 noGutter={alignStretchValue(text('No-gutter', '', groups.misc))}
-                            >offset: {Object.entries(offsetValue)}</Column>
+                            >
+
+                                <Box style={{
+                                marginBottom: '8px',
+                            padding: '16px',
+                         }}>offset: {Object.entries(offsetValue)}</Box>
+                            </Column>
                         </Row>
                     </Container>
                 )
