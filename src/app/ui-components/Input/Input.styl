@@ -1,0 +1,20 @@
+@import "../../../styles/base.styl"
+
+$input
+  border: 0
+  font-size: 1rem
+  border-bottom: $border-width.small solid $text-01
+  outline: transparent
+  transition: all $duration.medium.x1 ease
+
+  &:focus
+    border-bottom: $border-width.medium solid $brand-01
+
+  &:invalid
+    border-botom: $border-width.medium solid $support.error
+
+  &__container
+    display: inline
+
+.input
+  @extends $input
