@@ -1,49 +1,43 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { Container, Row, Column } from './ui-components/Grid'
-import Box from './ui-components/Box'
-import Input from './ui-components/Input'
-import Button from './ui-components/Button'
-import Tag from './ui-components/Tag'
-import Modal from './ui-components/Modal'
-import Link from './ui-components/Link'
-import style from './App.styl' // eslint-disable-line
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router' // react-router v4
+import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-react-router'
+import createHistory from 'history/createBrowserHistory'
 
-const App = ({ title }) => (
-    <div>
-        <h1>{title}</h1>
-        <Container fluid>
-            <Row justifyCenter alignCenter>
-                <Column cols={{ xs: 8 }}>
-                    <Box
-                        style={{ padding: '16px' }}
-                        shadow={{ grey: 2 }}
-                        noRadius
-                    >
-                        <Row justifyCenter alignCenter>
-                            <h4 style={{ display: 'inline' }}>https://github.com/</h4>
-                            <Input style={{ margin: '0 32px 0 4px' }} name="username" placeholder="octacatpus" />
-                            <Button iconPosition="right" icon="chevron-right" small>enviar</Button>
-                            <Tag>#react</Tag>
-                            <Link icon="chevron-right" iconPosition="right">Meu link</Link>
-                            <Modal isOpen={false}>
-                                <div>AHHHH</div>
-                                <div data-modal-footer>
-                                    <Button style={{ marginRight: '16px' }}>AHHH</Button>
-                                    <Button kind="outline-primary">yeeeeh</Button>
-                                </div>
-                            </Modal>
-                        </Row>
-                    </Box>
-                </Column>
-            </Row>
-        </Container>
-    </div>
+import { Container } from './ui-components/Grid'
+import { Home } from './pages/Home'
+import { reducer } from './reducers'
+
+import style from './App.styl'
+
+const history = createHistory({ basename: '/' })
+
+
+const composedEhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const configureStore = () => createStore(
+    connectRouter(history)(reducer),
+    { error: '', isLoading: false },
+    composedEhancers(applyMiddleware(thunk, routerMiddleware(history))),
 )
 
-App.propTypes = {
-    title: PropTypes.string.isRequired,
-}
+const store = configureStore()
+
+const App = () => (
+    <Container className={style.app} fluid>
+        <div className={style.app__title}>
+            <h1 className={style.home__title}>githubstars</h1>
+        </div>
+        <Provider store={store}>
+            <ConnectedRouter history={history}>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                </Switch>
+            </ConnectedRouter>
+        </Provider>
+    </Container>
+)
 
 export default App

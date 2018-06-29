@@ -177,7 +177,7 @@ class Modal extends Component {
         if (!state.isOpen || !state.container) return
 
         // remove esc event
-        if (WindowEventsHelper.removeEvent('keyup', this.escEvent)) this.escEvent = null
+        if (this.escEvent && WindowEventsHelper.removeEvent('keyup', this.escEvent)) this.escEvent = null
 
         this.setState({ closing: true }, () => {
             if (!global.window) {

@@ -4,6 +4,10 @@
   "description": "brainn.co hiring proccess challenge - client",
   "author": "Paulo Ricardo Xavier Giusti",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainn-client.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,9 +18,17 @@
   "dependencies": {
     "babel-polyfill": "~6.26.0",
     "classnames": "~2.2.5",
+    "connected-react-router": "^4.3.0",
+    "history": "^4.7.2",
     "prop-types": "~15.6.0",
     "react": "~16.2.0",
     "react-dom": "~16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
@@ -67,6 +79,7 @@
     "postcss-url": "~7.3.0",
     "react-addons-test-utils": "~15.6.2",
     "react-test-renderer": "~16.2.0",
+    "redux-devtools-extension": "^2.13.5",
     "style-loader": "~0.19.1",
     "stylus": "~0.54.5",
     "stylus-loader": "~3.0.1",

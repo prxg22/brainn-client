@@ -1,9 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './app/App.jsx' // eslint-disable-line
+import App from './app/App'
 
-ReactDOM.render(
-    (<App title="githubstars" />),
-    document.getElementById('root'),
-)
+const root = global.window.document.getElementById('root')
+if (root) {
+    ReactDOM.render(
+        (<App title="githubstars" />),
+        root,
+    )
+}
