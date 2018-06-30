@@ -8,7 +8,7 @@ import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-reac
 import createHistory from 'history/createBrowserHistory'
 
 import { Container } from './ui-components/Grid'
-import { Home } from './pages/Home'
+import { Home, Repos } from './pages'
 import { reducer } from './reducers'
 
 import style from './App.styl'
@@ -33,7 +33,8 @@ const App = () => (
         <Provider store={store}>
             <ConnectedRouter history={history}>
                 <Switch>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/repos/:username" component={Repos} />
+                    <Route path="*" component={Home} />
                 </Switch>
             </ConnectedRouter>
         </Provider>

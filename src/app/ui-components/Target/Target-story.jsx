@@ -10,10 +10,9 @@ import Row from '../Grid/Row'
 import Column from '../Grid/Column'
 import Box from '../Box'
 
-import Button from './Button'
+import Target from './Target'
 
-
-storiesOf('Button', module)
+storiesOf('Target', module)
     .add(
         'default',
         withInfo({
@@ -24,41 +23,27 @@ storiesOf('Button', module)
                 icon: 'Icon',
                 content: 'Content',
             }
-
-            const kindValue = select('Kind', {
-                primary: 'Primary',
-                'outline-primary': 'Outline Primary',
-            }, 'primary', groups.style)
-
-            const onlyIconValue = boolean('Only Icon', false, groups.icon)
-
             return (
                 <Container>
                     <Row>
                         <Column
-                            cols={{ xs: 12 }}
+                            cols={{ xs: 4 }}
+                            offsets={{ xs: 4 }}
                         >
                             <Box
                                 style={{
                                     padding: 16,
                                 }}
-                                theme={(kindValue === 'inverse' || kindValue === 'outline-inverse') ? 'dark' : ''}
                             >
-                                <Button
-                                    kind={kindValue}
-                                    small={boolean('Small', false, groups.style)}
-                                    block={boolean('Block', false, groups.style)}
-                                    pill={boolean('Pill', false, groups.style)}
-                                    disabled={boolean('Disabled', false, groups.style)}
-                                    icon={text('Icon', '', groups.icon)}
+                                <Target
+                                    icon={text('Icon', 'arrow-left', groups.icon)}
                                     iconPosition={select('Icon Position', {
                                         left: 'Left',
                                         right: 'Right',
                                     }, 'left', groups.icon)}
-                                    href={text('Href', '', groups.content)}
                                 >
-                                    {text('Content', 'Button', groups.content)}
-                                </Button>
+                                    {text('Content', 'Target', groups.content)}
+                                </Target>
                             </Box>
                         </Column>
                     </Row>

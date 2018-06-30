@@ -6,9 +6,9 @@ import classnames from 'classnames'
 import Icon from '../Icon'
 
 // styles
-import style from './Link.styl'
+import style from './Target.styl'
 
-class Link extends Component {
+class Target extends Component {
     static propTypes = {
         /**
          * Box's content
@@ -26,7 +26,7 @@ class Link extends Component {
         className: PropTypes.string,
 
         /**
-         * Link type
+         * Target type
          */
         kind: PropTypes.oneOf([
             'primary',
@@ -39,7 +39,7 @@ class Link extends Component {
         disabled: PropTypes.bool,
 
         /**
-         * If it's provided, Link will be rendered on HTML <a> node
+         * If it's provided, Target will be rendered on HTML <a> node
          */
         href: PropTypes.string,
 
@@ -129,4 +129,4 @@ class Link extends Component {
     }
 }
 
-export default Link
+export default Target

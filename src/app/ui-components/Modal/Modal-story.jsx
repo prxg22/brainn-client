@@ -1,5 +1,5 @@
 // libs
-import React, { Component }  from 'react'
+import React, { Component } from 'react'
 import { storiesOf, forceReRender } from '@storybook/react'
 import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs/react'
 import { withInfo } from '@storybook/addon-info'
@@ -16,55 +16,52 @@ import Box from '../Box'
 import Modal from './Modal'
 
 const store = new Store({
-    isOpen: false
+    isOpen: false,
 })
 
 storiesOf('Modal', module)
     .add(
         'default',
         withInfo({
-            propTablesExclude: [ Container, Row, Column, Button, Link, Box, State ],
-            text: 'Use attribute data-modal-footer'
-        })(
-            () => (
-                <Row>
-                    <Column cols={{ xs: 12 }}>
-                        <Button onClick={() => store.set({ isOpen: true })}>
+            propTablesExclude: [Container, Row, Column, Button, Link, Box, State],
+            text: 'Use attribute data-modal-footer',
+        })(() => (
+            <Row>
+                <Column cols={{ xs: 12 }}>
+                    <Button onClick={() => store.set({ isOpen: true })}>
                             Open
-                        </Button>
-                        <State store={store}>
-                            <Modal
-                                isOpen={store.get('isOpen')}
-                                onClose={() => { store.set({ isOpen: false }) }}
-                            >
-                                <Row>
-                                    <Column style={{ textAlign: 'center' }} noGutter>
-                                    </Column>
-                                    <Column style={{ marginBottom: 32 }} noGutter>
-                                        <h6 align="center" style={{ padding: '0 40px' }}>
+                    </Button>
+                    <State store={store}>
+                        <Modal
+                            isOpen={store.get('isOpen')}
+                            onClose={() => { store.set({ isOpen: false }) }}
+                        >
+                            <Row>
+                                <Column style={{ textAlign: 'center' }} noGutter />
+                                <Column style={{ marginBottom: 32 }} noGutter>
+                                    <h6 align="center" style={{ padding: '0 40px' }}>
                                             Olá, eu sou um modal (:
-                                        </h6>
-                                    </Column>
-                                </Row>
-                                <Row data-modal-footer>
-                                    <Column align="right" noGutter>
-                                        <Link
-                                            style={{ marginRight: 8 }}
-                                            onClick={() => store.set({ isOpen: false })}
-                                        >
+                                    </h6>
+                                </Column>
+                            </Row>
+                            <Row data-modal-footer>
+                                <Column align="right" noGutter>
+                                    <Link
+                                        style={{ marginRight: 8 }}
+                                        onClick={() => store.set({ isOpen: false })}
+                                    >
                                             Cancelar
-                                        </Link>
-                                        <Button
-                                            onClick={() => store.set({ isOpen: false })}
-                                        >
+                                    </Link>
+                                    <Button
+                                        onClick={() => store.set({ isOpen: false })}
+                                    >
                                             Editar
-                                        </Button>
-                                    </Column>
-                                </Row>
-                            </Modal>
-                        </State>
-                    </Column>
-                </Row>
-            )
-        )
+                                    </Button>
+                                </Column>
+                            </Row>
+                        </Modal>
+                    </State>
+                </Column>
+            </Row>
+        )),
     )

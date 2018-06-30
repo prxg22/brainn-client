@@ -2,30 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { User as UserAction } from './actions'
+import { Home as HomeActions } from '../../actions'
 
 import UserBox from './components/UserBox'
-import Loader from './components/Loader'
+import Loader from '../../ui-components/Loader'
 
 class Home extends React.Component {
     static propTypes = {
         username: PropTypes.string,
         isLoading: PropTypes.bool,
-        error: PropTypes.string,
+        error: PropTypes.shape({ message: PropTypes.string }),
         dispatch: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
         isLoading: false,
-        error: '',
+        error: null,
         username: '',
-    }
-
-    componentDidMount() {
-        const { username, dispatch } = this.props
-
-        if (!username) dispatch(UserAction.reset())
-        else dispatch(UserAction.getUserRepos(username))
     }
 
     render() {
@@ -44,7 +37,7 @@ class Home extends React.Component {
         return (
             <UserBox
                 onChange={(u) => { this.username = u || username }}
-                onSubmit={() => dispatch(UserAction.getUserRepos(this.username))}
+                onSubmit={() => dispatch(HomeActions.getUserRepos(this.username))}
                 errorMsg={error ? error.message : ''}
             />
         )

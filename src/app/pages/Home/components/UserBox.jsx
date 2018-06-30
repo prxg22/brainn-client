@@ -37,16 +37,14 @@ const UserBox = (props) => {
                                     className={style['user-box__input']}
                                     onChange={e => e.preventDefault() || onChange(e.target.value)}
                                     name="usename"
-                                    placeholder="octacatpus"
+                                    placeholder="octocat"
                                     required
+                                    errorMsg={errorMsg}
                                 />
                                 <Button type="submit" small>
                                     Enviar
                                 </Button>
                             </form>
-                            <Column hidden={!errorMsg}>
-                                <span className="caption">{`error: ${errorMsg}`}</span>
-                            </Column>
                         </Row>
                     </Box>
                 </Column>

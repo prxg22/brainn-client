@@ -75,12 +75,14 @@ const getRepos = (username, tags) => request(`${API_URL}repo/?starredBy=${userna
   * @param {Array<String>} tags tags to be inserted
   * @return {Object} Filtered repos
   */
-const updateRepoTags = (_id, tags) => request(`${API_URL}repo/${_id}/tags`, { method: 'POST', body: { tags } })
+const updateRepoTags = (_id, tags) => {
+    return request(`${API_URL}repo/${_id}/tags`, { method: 'POST', body: JSON.stringify({tags})  })
     .catch((e) => {
         if (e.message === '400') throw new Error('These tags are not valid')
         if (e.message === '404') throw new Error('Repo not found')
         throw new Error('Something got wrong! Try later!')
     })
+}
 
 
 export default {
